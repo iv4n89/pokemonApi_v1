@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Details</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.1/css/all.css"
+        integrity="sha384-O8whS3fhG2OnA5Kas0Y9l3cfpmYjapjI0E4theH4iuMD+pLhbf6JI0jIMfYcK3yZ" crossorigin="anonymous">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+</head>
+
+<body>
+    <header>
+        <nav class="navbar navbar-expand-md navbar-light" style="background-color: #e3f2fd; padding: 10px 20px;">
+            <a class="navbar-brand" href="/index.html">PoKeDex</a>
+            <button class="navbar-toggler d-lg-none" type="button" data-bs-toggle="collapse"
+                data-bs-target="#collapsibleNavId" aria-controls="collapsibleNavId" aria-expanded="false"
+                aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+            <div class="collapse navbar-collapse" id="collapsibleNavId">
+                <ul class="navbar-nav me-auto mt-2 mt-lg-0">
+                    <li class="nav-item active">
+                        <a class="nav-link" href="/index.html">Index <span class="visually-hidden">(current)</span></a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="dropdownGen" data-bs-toggle="dropdown"
+                            aria-haspopup="true" aria-expanded="false">Generation</a>
+                        <div class="dropdown-menu" aria-labelledby="dropdownId">
+                            <a class="dropdown-item gen_selector" data-generation="1" href="/index.html?gen=1">1st
+                                Generation</a>
+                            <a class="dropdown-item gen_selector" data-generation="2" href="/index.html?gen=2">2nd
+                                Generation</a>
+                            <a class="dropdown-item gen_selector" data-generation="3" href="/index.html?gen=3">3rd
+                                Generation</a>
+                            <a class="dropdown-item gen_selector" data-generation="4" href="/index.html?gen=4">4th
+                                Generation</a>
+                            <a class="dropdown-item gen_selector" data-generation="5" href="/index.html?gen=5">5th
+                                Generation</a>
+                            <a class="dropdown-item gen_selector" data-generation="6" href="/index.html?gen=6">6th
+                                Generation</a>
+                            <a class="dropdown-item gen_selector" data-generation="7" href="/index.html?gen=7">7th
+                                Generation</a>
+                            <a class="dropdown-item gen_selector" data-generation="8" href="/index.html?gen=8">8th
+                                Generation</a>
+                        </div>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="dropdownTypes" data-bs-toggle="dropdown"
+                            aria-haspopup="true" aria-expanded="false">Types</a>
+                        <div class="dropdown-menu type_selector_menu" aria-labelledby="dropdownId">
+                        </div>
+                    </li>
+                </ul>
+                <form class="d-flex my-2 my-lg-0">
+                    <input id="poke-search" class="form-control me-sm-2" type="text" placeholder="Nombre o #">
+                    <button id="poke-search-button" class="btn btn-outline-success my-2 my-sm-0"
+                        type="submit">Search</button>
+                </form>
+            </div>
+        </nav>
+    </header>
+
+    <div class="container mt-3 text-center">
+        <div class="row">
+            <div class="p-2">
+                <div class="card bg-card-head mt-3">
+                    <div class="card-header">
+                        <h2 class="card-title text-center" id="pokemon_name"></h2>
+                    </div>
+                    <div id="pokemon_number" class="text-center container-fluid" style="height: 15px;"></div>
+                    <div class="dropdown-divider"></div>
+                    <div id="pokemon_description" class="text-center container-fluid"></div>
+                </div>
+            </div>
+            <div class="row row-cols-lg-6 p-2 justify-content-between ms-1 me-1">
+                <button id="previous_pokemon" class="btn btn-danger"><i class="fas fa-arrow-left"></i> Previous</button>
+                <div id="pokemon_types" class="mt-2 p-2 types_div d-flex justify-content-around"></div>
+                <button id="next_pokemon" class="btn btn-success">Next <i class="fas fa-arrow-right"></i></button>
+            </div>
+            <div class="row justify-content-around p-0 m-0">
+                <div class="col-lg-2 col-sm-6">
+                    <div class="card bg-card-head border-dark mb-3">
+                        <div class="card-header">
+                            <h4 class="card-title"><u>Height</u><br>Weight</h4>
+                        </div>
+                        <div class="card-body">
+                            <div id="pokemon_height" class="card-text"></div>
+                            <hr>
+                            <div id="pokemon_weight" class="card-text"></div>
+                        </div>
+                    </div>
+                    <div id="pokemon_gender" class="card bg-card-head border-dark mb-3">
+                        <div class="card-header">
+                            <h4 class="card-title">Gender</h4>
+                        </div>
+                        <div class="card-body">
+                            <span id="pokemon_female"></span>
+                            <hr>
+                            <span id="pokemon_male"></span>
+                        </div>
+                    </div>
+                    <div id="pokemon_egg" class="card bg-card-head border-dark mb-3">
+                        <div class="card-header">
+                            <h4 class="card-title">Egg group</h4>
+                        </div>
+                        <div class="card-body">
+                        </div>
+                    </div>
+                    <div class="card border-dark bg-card-head mb-3">
+                        <div class="card-header">
+                            <h4 class="card-title">Sprites</h4>
+                        </div>
+                        <div class="card-body">
+                            <div class="btn-group d-flex flex-wrap p-0">
+                                <button id="btn-artwork" class="btn bg-button">Official artwork</button>
+                                <button id="btn-gen1" class="btn bg-button">R/B</button>
+                                <button id="btn-gen2" class="btn bg-button">G/S</button>
+                                <button id="btn-gen3" class="btn bg-button">R/S</button>
+                                <button id="btn-gen1-r" class="btn bg-button">FR/LG</button>
+                                <button id="btn-gen4" class="btn bg-button">D/P</button>
+                                <button id="btn-gen2-r" class="btn bg-button">HG/SS</button>
+                                <button id="btn-gen5" class="btn bg-button">B/W</button>
+                                <button id="btn-gen6" class="btn bg-button">X/Y</button>
+                                <button id="btn-gen3-r" class="btn bg-button">OR/AS</button>
+                                <button id="btn-gen7" class="btn bg-button">S/M</button>
+                                <button id="btn-3d" class="btn bg-button">·3D-animated·</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col">
+                    <div id="pokemon_image" class="card bg-card-head border-dark p-0 mb-3">
+                        <div class="card-header">
+                            <h4>Pokemon Image</h4>
+                        </div>
+                        <div class="card-body d-flex justify-content-center p-3 m-0">
+                            <img src="" alt="" class="responsive_img">
+                        </div>
+                    </div>
+                    <div id="pokemon_evolution_line" class="card border-dark mb-3 bg-card-head">
+                        <div class="card-header">
+                            <h4 class="card-title">Evolution Chain</h4>
+                        </div>
+                        <div class="card-body d-flex justify-content-evenly flex-wrap">
+                        </div>
+                    </div>
+                    <div class="accordion mb-3" id="accordionExample">
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="headingOne">
+                                <button class="accordion-button" type="button" data-bs-toggle="collapse"
+                                    data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                                    Moves
+                                </button>
+                            </h2>
+                            <div id="collapseOne" class="accordion-collapse collapse" aria-labelledby="headingOne"
+                                data-bs-parent="#accordionExample">
+                                <div id="pokemon_moves" class="accordion-body"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-2 col-sm-6">
+                    <div id="pokemon_stats" class="card bg-card-head border-dark mb-3 p-0">
+                        <div class="card-header">
+                            <h4 class="card-title">Base Stats</h4>
+                        </div>
+                        <div class="card-body p-0">
+                        </div>
+                    </div>
+                    <div id="pokemon_ability" class="card bg-card-head border-dark mb-3">
+                        <div class="card-header">
+                            <h4 class="card-title">Abilities</h4>
+                        </div>
+                        <div class="card-body"></div>
+                    </div>
+                    <div id="pokemon_hidden_ability" class="card bg-card-head border-dark mb-3">
+                        <div class="card-header">
+                            <h4 class="card-title">Hidden ability</h4>
+                        </div>
+                        <div class="card-body"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <script type="module" src="/pokemonDetails.js"></script>
+        <script type="module" src="/navbar_inicializer.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"
+            integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p"
+            crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js"
+            integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF"
+            crossorigin="anonymous"></script>
+</body>
+
+</html>

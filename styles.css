@@ -1,0 +1,313 @@
+@import url(https://fonts.googleapis.com/css?family=Lato:100,100italic,300,300italic,regular,italic,700,700italic,900,900italic);
+
+:root {
+    --main-red-primary: #ee1515;
+    --main-red-variant: #f00000;
+    --main-black-primary: #222224;
+    --main-white-primary: #f0f0f0;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body{
+    /*background: #EFEFBB;*/
+    /*background: linear-gradient(to right, #D4D3DD, #EFEFBB);*/
+    background-color: #444450 !important;
+    /*background-repeat: repeat-y;*/
+}
+
+h1 {
+    letter-spacing: 3px;
+}
+
+.extra_large_text{
+    font-size: 900%;
+}
+.extra_large_img{
+    transform: scale(1.5);
+    position: relative;
+    top: 100px;
+    left: 75px;
+}
+.bg-card-head{
+    background-color: #e3f2fd !important;
+}
+.card-font-format{
+    font-weight: 600;
+    font-size: 20;
+}
+.types_div {
+    background-color: transparent !important;
+    width: 400px !important;
+}
+.bg-button{
+    /*background-color: #ccdae4 !important;*/
+    background-color: #dbeaf5 !important;
+    border: 1px solid #ccdae4 !important;
+    transition: background-color 0.5s !important;
+}
+.bg-button:hover {
+    transition: background-color 0.5s !important;
+    background-color: #afbbc4 !important;
+}
+.bg-button-disabled {
+    background-color: #6e757b !important;
+}
+.responsive_img {
+    height: 440px;
+    max-width: 600px;
+}
+
+/* ARROWS */
+.arrowText {
+    position: relative;
+    margin: 20px;
+    width: 120px;
+    height: 48px;
+    background: #dbeaf5;
+    border: solid 1px #c5d3dd;
+    float: left;
+}
+
+.arrowText:before,
+.arrowText:after {
+    content: " ";
+    position: absolute;
+    display: block;
+    width: 0;
+    height: 0;
+}
+/* RIGHT ARROW */
+.arrowRight:before,
+.arrowRight:after {
+    border-bottom: 25px solid transparent;
+    border-top: 25px solid transparent;
+    top: -1px;
+}
+
+.arrowRight:after {
+    border-left: 16px solid #dbeaf5;
+    right: -15px;
+    z-index: 2;
+}
+
+.arrowRight:before {
+    border-left: 16px solid #c5d3dd;
+    right: -16px;
+    z-index: 1;
+}
+
+@media only screen and (max-width: 768px) {
+    .responsive_img {
+        height: 50%;
+        max-width: 300px;
+    }
+    .arrowText {
+        width: 60px;
+        font-size: small;
+    }
+}
+
+@media(max-width: 1400px) {
+    .extra_large_text{
+        font-size: 700%;
+    }
+    .extra_large_img{
+        transform: scale(1.2);
+        top: 50px;
+        left: 20px;
+    }
+}
+@media(max-width: 1024px) {
+    .extra_large_text{
+        font-size: 400%;
+    }
+    .extra_large_img{
+        transform: scale(1);
+        top: 0;
+        left: 0;
+    }
+}
+@media(max-width: 770px) {
+    .extra_large_img{
+        transform: scale(1);
+        top: -20px;
+        left: -70px;
+    }
+}
+@media(max-width: 550px) {
+    .extra_large_text {
+        font-size: 200%;
+    }
+
+    .extra_large_img {
+        transform: scale(0.8);
+        top: -20px;
+        left: -100px;
+    }
+}
+@media(max-width: 450px) {
+    .extra_large_text{
+        font-size: 200%;
+    }
+    .extra_large_img{
+        transform: scale(0.6);
+    }
+}
+
+.dropdown-menu {
+    background-color: rgba(255, 255, 255, 0.8) !important;
+}
+
+.dropdown-item {
+    cursor: pointer;
+}
+
+.poke-container {
+    display: grid;
+    grid-template-columns: auto auto auto;
+    align-items: space-between;
+    justify-content: center;
+    margin: 50px auto 0 auto;
+}
+
+@media(max-width: 500px) {
+    .poke-container {
+        display: flex;
+        flex-wrap: wrap;
+    }
+}
+
+.pokemon {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-width: 250px;
+    background-color: #eee;
+    border-radius: 20px;
+    box-shadow: 0 3px 15px rgba(100, 100, 100, 0.6);
+    padding: 20px;
+    text-align: center;
+    margin: 20px;
+}
+
+.pokemon .img-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: rgba(255, 255, 255, 0.6);
+    border-radius: 50%;
+    height: 120px;
+    width: 120px;
+}
+
+.pokemon:hover {
+    transition: transform 0.5s;
+    transform: translateY(-20px);
+}
+
+.pokemon:not(:hover) {
+    transition: transform 1s;
+}
+
+.pokemon .img-container img {
+    margin-top: 20px;
+    max-height: 100%;
+    max-width: 80px;
+    transform: scale(1.5);
+}
+
+.pokemon .info {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    margin-top: 20px;
+    padding: 10px;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 20px;
+}
+
+.pokemon .number {
+    background-color: rgba(0, 0, 0, 0.5);
+    color: var(--main-white-primary);
+    border-radius: 10px;
+    font-size: 0.8em;
+    padding: 5px 10px;
+}
+
+.pokemon .name {
+    margin: 15px 0 7px;
+    letter-spacing: 1px;
+}
+
+/** Pokemon Details **/
+
+#data-container {
+    display: flex;
+    margin: 50px;
+}
+
+.pokemon_details {
+    margin: 50px;
+    /*display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-start;
+    padding: 15px;
+    border: 1px solid black;
+    border-radius: 25px;
+    height: 500px;
+    width: 1000px;
+    z-index: -1;*/
+}
+
+.pokemon_details .pokeImg {
+    margin-left: 10px;
+}
+
+.pokemon_details .pokeImg img{
+    max-height: 100%;
+    max-width: 300px;
+    transform: scale(2);
+    padding: 5px;
+    margin: 50px;
+    z-index: 1;
+}
+
+.pokemon_details .pokemon_name {
+    font-size: 30px;
+    text-align: center;
+    text-transform: capitalize;
+    color: var(--main-black-primary);
+}
+
+.pokemon_details .statContainer {
+    display: flex;
+    align-self: flex-end;
+    flex-direction: column;
+    padding: 10px;
+    border-radius: 20px;
+    width: 30%;
+}
+
+.pokemon_details .stats {
+    display: flex;
+    justify-content: space-between;
+}
+
+@media(max-width:540px) {
+    .pokemon_details {
+        /*height: 1000px;
+        width: 80%;
+        margin: 25px;
+        background: linear-gradient(180deg, var(--main-red-primary) 0%, var(--main-red-variant) 48%, var(--main-black-primary) 48%, var(--main-black-primary) 53%, var(--main-white-primary) 53%, var(--main-white-primary) 100%);
+        flex-wrap: wrap;*/
+    }
+
+    #data-container {
+        display: flex;
+        flex-direction: column;
+    }
+}
